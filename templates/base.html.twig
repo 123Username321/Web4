@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/jquery-3.5.1.js"></script>
+        <title>{% block title %}{{ title }}{% endblock %}</title>
+    </head>
+    <body>
+        {% block header %}
+        <header>
+            <section class="central full-height flex-column flex-space-between">
+                <nav class="flex-row flex-space-between">
+                    <h4 class="logo"><a href="/">Feedbax$</a></h4>
+                    {% if app.user %}<h5>Привет, {{ app.user.username }}</h5>{% endif %}
+                    <div class="flex-row">
+                    {% if app.user %}
+                        <h5><a href="/logout">Выход</a></h5>
+                    {% else %}
+                        <h5><a href="/login">Вход</a></h5>
+                        <h5 class="symbol-divider">|</h5>
+                        <h5><a href="/register">Регистрация</a></h5>
+                    {% endif %}
+                        <h5 class="symbol-divider">|</h5>
+                        <h5><a href="/about">О проекте</a></h5>
+                    </div>
+                </nav>
+            </section>
+        </header>
+        {% endblock %}
+        {% block body %}{% endblock %}
+        {% block scripts %}{% endblock %}
+        {% block footer %}{% endblock %}
+    </body>
+</html>

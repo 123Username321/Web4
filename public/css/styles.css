@@ -1,0 +1,152 @@
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    padding-top: 4rem;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FBC02D;
+    height: 4rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+nav {
+    margin: auto 0;
+    align-items: center;
+}
+a {
+    color: black !important;
+    text-decoration: none !important;
+    transition: color 0.3s
+}
+a:hover {
+    color: #F57F17 !important;
+}
+nav a:hover {
+    color: white !important;
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.product-info p {
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+}
+.logo {
+    font-weight: bold;
+}
+.full-height {
+    height: 100% !important;
+}
+.central {
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+}
+.centered {
+    text-align: center;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+.item-container {
+    padding: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    margin: 1rem 0;
+}
+.item-container-feedback {
+    padding: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 150);
+    margin: 0.5rem 0;
+}
+.symbol-divider {
+    margin: 0 0.75rem;
+}
+
+.form-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+form {
+    display: inline-flex;
+    flex-direction: column;
+}
+form > h4 {
+    text-align: center;
+}
+form > div {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+form > div:last-of-type {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+}
+form > div > label {
+    margin-right: 0.5rem;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+}
+.input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: baseline;
+}
+.input-row label {
+    margin-right: 0.25rem;
+}
+.input-error {
+    color: red;
+}
+.input-error ul {
+    list-style: none;
+    padding: 0;
+}
+
+.symfony-wide-form, .symfony-wide-form form {
+    width: 100%;
+}
+.symfony-wide-form div#form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.symfony-wide-form div#form div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0.25rem 0;
+}
+.symfony-wide-form div#form div label {
+    font-weight: bolder;
+}

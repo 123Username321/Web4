@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+
+{% block body %}
+<section class="central">
+	<div class="item-container">
+		<h5>{{ product.name }}</a></h5>
+		<div>{{ product.description }}</div>
+		<div class="product-info">
+			<div>
+				<p>Рейтинг: {{ product.raiting|round(2, 'ceil') }}</p>
+				<p>Отзывов: {{ product.feedbacksAmount }}</p>
+			</div>
+			<p>Продукт добавлен: {{ product.addDate|date('d-m-Y') }}</p>
+		</div>
+	</div>
+
+	{% for feedback in product.feedbacks %}
+	<div class="item-container-feedback">
+		{# <h5>{{ feedback.name }}</a></h5> #}
+		<div>{{ feedback.content }}</div>
+		<div class="product-info">
+			<div>
+				<p>Оценка: {{ feedback.raiting }}</p>
+			</div>
+			<p>Отзыв добавлен: {{ feedback.addDate|date('d-m-Y') }}</p>
+			{% if is_granted('ROLE_ADMIN') %}
+            <p><a href="/product/{{ product.id }}/feedback/{{ feedback.id }}/delete">Удалить</a></p>
+            {% endif %}
+		</div>
+	</div>
+	{% endfor %}
+
+	{% if app.user %}
+	<div class="symfony-wide-form">
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+    </div>
+	{% endif %}
+	
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="central">   
+    
+    {% for product in products %}
+    <div class="item-container">
+        <h5><a href="/product/{{ product.id }}">{{ product.name }}</a></h5>
+        <div class="product-info">
+            <div>
+                <p>Рейтинг: {{ product.raiting|round(2, 'ceil') }}</p>
+                <p>Отзывов: {{ product.feedbacksAmount }}</p>
+            </div>
+            <p>Продукт добавлен: {{ product.addDate|date('d-m-Y') }}</p>
+            {% if is_granted('ROLE_ADMIN') %}
+            <p><a href="/product/{{ product.id }}/delete">Удалить</a></p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+	<div class="symfony-wide-form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+    {% endif %}
+    
+</section>
+{% endblock %}
